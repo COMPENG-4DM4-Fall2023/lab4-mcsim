@@ -1,6 +1,6 @@
 #CXX = clang++
 CXX = g++
-CXXFLAGS= -O3 -std=c++11 -Wall -Wpedantic 
+CXXFLAGS= -O3 -std=c++11 -Wall -Wpedantic -no-pie
 # ######################################################
 # 		Addjust the following option based on need
 #CXXFLAGS += -DDEBUG_ENABLED
