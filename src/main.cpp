@@ -123,7 +123,7 @@ cout<<"call back"<<endl;
 		DEBUG("ERROR:  COULD NOT OPEN TRACE FILE");
 		::exit(0);
 	}
-	bool inOrder = true;
+	bool inOrder = false;
 	int requestSize = 64;
 	string line;
 	for (unsigned int id = 0; id < requestors; id++)
@@ -167,6 +167,7 @@ cout<<"call back"<<endl;
 			requestSize = 64;
 			break;
 		}
+		inOrder = false;
 		requestorsMap[id] = new Requestor(id, inOrder, line);
 		requestorsMap[id]->RequestSize = requestSize;
 		// Channel Assignment
