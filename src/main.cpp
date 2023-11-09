@@ -183,8 +183,11 @@ cout<<"call back"<<endl;
 	uint64_t currentClockCyle = 1;
 	clock_t begin = clock();
 	bool simDone = false;
+	bool doneBefore[requestors]={0};
+	
 	while (!simDone)
 	{
+	        simDone = true;
 		if (cycles != 0 && currentClockCyle == cycles)
 		{
 			simDone = true;
@@ -195,9 +198,15 @@ cout<<"call back"<<endl;
 		{
 			requestorsMap[id]->update();
 			// Determine if simulation is complete
-			if (requestorsMap[id]->sim_end())
+			if (!(requestorsMap[id]->sim_end()))
 			{
-				simDone = true;
+				simDone = false;
+			} else {
+			
+			   if (!doneBefore[id]) {
+			      std::cout << "Requestor "<< id<<" End @ " << currentClockCyle <<std::endl;
+			      doneBefore[id]=true;
+			   }
 			}
 		}
 		memorySystem->update();
