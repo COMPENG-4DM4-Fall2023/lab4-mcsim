@@ -5,8 +5,8 @@ CXXFLAGS= -O3 -std=c++11 -Wall -Wpedantic -no-pie
 # 		Addjust the following option based on need
 #CXXFLAGS += -DDEBUG_ENABLED
 #CXXFLAGS += -DCMD_TRACE_ENABLED
-CXXFLAGS += -DREQ_TRACE_ENABLED
-CXXFLAGS += -DSINGLE_RANK_BANK_PRIVATIZATION 
+#CXXFLAGS += -DREQ_TRACE_ENABLED
+#CXXFLAGS += -DSINGLE_RANK_BANK_PRIVATIZATION 
 #CXXFLAGS += -DMULTI_RANK_BANK_PRIVATIZATION 
 ########################################################
 #-Wextra
