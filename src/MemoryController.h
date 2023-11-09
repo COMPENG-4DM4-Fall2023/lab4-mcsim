@@ -101,7 +101,7 @@ namespace MCsim
 		unsigned int convertNumber(const std::string &input);
 		void setQueue(const std::string &queueOrg, vector<unsigned int> &queueMap);
 		unsigned int queueNumber(vector<unsigned int> &queueMap);
-		unsigned int decodeQueue(const unsigned int (&addressMap)[4], vector<unsigned int> &queueMap);
+		unsigned int decodeQueue(const unsigned int (&addressMap)[6], vector<unsigned int> &queueMap);
 
 		// Statistics
 		struct Statistics
