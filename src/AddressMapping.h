@@ -13,6 +13,7 @@ namespace MCsim
 	public:
 		AddressMapping(const std::string &format, const unsigned int (&memTable)[6]);
 		void addressMapping(Request *request);
+		unsigned int addrLength_bits;
 
 	private:
 		std::vector<std::pair<unsigned int, unsigned int>> decodeIndex;
