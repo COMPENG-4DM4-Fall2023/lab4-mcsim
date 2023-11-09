@@ -38,7 +38,7 @@ namespace MCsim
 		unsigned int subArray;
 		unsigned int row;
 		unsigned int col;
-		unsigned int addressMap[4];
+		unsigned int addressMap[6];
 		// Rank, BankGroup, Bank, SubArray
 	};
 } // namespace MCsim
