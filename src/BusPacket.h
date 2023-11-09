@@ -57,7 +57,7 @@ namespace MCsim
 		unsigned arriveTime;
 		bool postCommand;
 		unsigned postCounter;
-		unsigned int addressMap[4];
+		unsigned int addressMap[6];
 	};
 } // namespace MCsim
 
