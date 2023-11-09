@@ -643,7 +643,7 @@ unsigned int MemoryController::queueNumber(vector<unsigned int> &queueMap)
 	return queueCount;
 }
 
-unsigned int MemoryController::decodeQueue(const unsigned int (&addressMap)[4], vector<unsigned int> &queueMap)
+unsigned int MemoryController::decodeQueue(const unsigned int (&addressMap)[6], vector<unsigned int> &queueMap)
 {
 	unsigned int queueIndex = 0;
 	for (unsigned int index = 0; index < queueMap.size(); index++)
