@@ -6,6 +6,7 @@ using namespace MCsim;
 AddressMapping::AddressMapping(const std::string &format, const unsigned int (&memTable)[6])
 {
 	unsigned int memIndex = 0;
+        addrLength_bits = 0;
 	for (unsigned index = 0; index < format.size(); index++)
 	{
 		memIndex = format[index] - '0';
@@ -17,16 +18,20 @@ AddressMapping::AddressMapping(const std::string &format, const unsigned int (&m
 		else
 		{
 			decodeIndex.push_back(std::make_pair(memIndex, log2(memTable[memIndex])));
+			addrLength_bits+=log2(memTable[memIndex]);
 		}
 	}
+	//std::cout<<"Addr Length = "<< addrLength_bits<<"\n";
 }
 
 void AddressMapping::addressMapping(Request *request)
 {
 	// Case 1: Interleaved controllers such as (AMC, RTMem, PMC), normal translation
 	// Decode the address from trace according to the address mapping scheme
-	unsigned tempA = request->address;
-	unsigned tempB = request->address;
+	long long int address = request->address >> 6;
+	//request->address = address;
+	unsigned tempA = address;
+	unsigned tempB = address;
 	unsigned tempAddr = 0;
 	for (int index = decodeIndex.size() - 1; index >= 0; index--)
 	{
