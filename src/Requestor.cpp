@@ -206,8 +206,17 @@ void Requestor::parseTraceFileLine(string &line, uint64_t &addr, enum RequestTyp
 	// Address Decoding
 	spaceIndex = line.find_first_not_of(" ", previousIndex);
 	addressStr = line.substr(spaceIndex, line.find_first_of(" ", spaceIndex) - spaceIndex);
-	istringstream b(addressStr.substr(2)); // Gets rid of 0x
+	stringstream b(addressStr.substr(2)); // Gets rid of 0x
+	stringstream id_str;
+	id_str << hex << requestorID;
+	b << id_str.str();
 	b >> hex >> addr;
+	stringstream bb(addressStr.substr(2));
+	uint64_t addr2;
+	bb >> hex >> addr2;
+	
+	
+	//cout<<requestorID<<": "<<hex<<addr2<<" "<<hex<<addr<<endl;
 	//addr = addr >> 6; // For verification of Ramulator
 	previousIndex = line.find_first_of(" ", spaceIndex);
 
