@@ -18,8 +18,10 @@ namespace MCsim
 			{ // Loop over the queueing structure
 				if (requestQueue[index]->getSize(false, 0) > 0)
 				{
+						
 					scheduledRequest = scheduleFR(index); // Take the candidate request from the correspoding queue
-					if (scheduledRequest != NULL)
+					//cout<<"commandQueue["<<scheduledRequest->bank<<"]->getSize"<<commandQueue[scheduledRequest->bank]->getSize(true)<<endl;
+					if ((scheduledRequest != NULL) && (commandQueue[scheduledRequest->bank]->getSize(true) == 0))
 					{
 						if (isSchedulable(scheduledRequest, isRowHit(scheduledRequest))) // Determine if the request target is an open row or not
 						{
